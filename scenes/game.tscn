@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dd3mkrk8qukie"]
+[gd_scene load_steps=17 format=4 uid="uid://dd3mkrk8qukie"]
 
 [ext_resource type="Script" uid="uid://b4kaxmpq7ya8q" path="res://script/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://b0yp57dmp1r23" path="res://assets/sprites/inside-house.png" id="2_iywne"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://hky2svb3bcp7" path="res://assets/sprites/Exit1.png" id="6_ir15t"]
 [ext_resource type="Texture2D" uid="uid://ddoo6carvvded" path="res://assets/sprites/Exit2.png" id="7_ca42v"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="12_dinhu"]
+[ext_resource type="Script" uid="uid://3inedt7vwkw7" path="res://script/camera_2d.gd" id="12_kvuet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("2_iywne")
@@ -85,15 +86,6 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_p57ef")
 sources/1 = SubResource("TileSetAtlasSource_yqjtg")
 
-[sub_resource type="Gradient" id="Gradient_dinhu"]
-offsets = PackedFloat32Array(0.026666667, 0.66)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kvuet"]
-gradient = SubResource("Gradient_dinhu")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [node name="game" type="Node2D"]
 script = ExtResource("1_lbhrr")
 
@@ -103,7 +95,7 @@ format = 2
 
 [node name="background" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AADt//n/AQAFAAAAAADu//n/AQAFAAAAAADv//n/AQAFAAAAAADw//n/AQAFAAAAAADx//n/AQAFAAAAAADy//n/AQAFAAAAAADz//n/AQAFAAAAAAD0//n/AQAFAAAAAAD1//n/AQAFAAAAAADt//j/AQAEAAAAAADu//j/AQAEAAAAAADv//j/AQAEAAAAAADw//j/AQAEAAAAAADx//j/AQAEAAAAAADy//j/AQAEAAAAAADz//j/AQAEAAAAAAD0//j/AQAEAAAAAAD1//j/AQAEAAAAAADt//r/AQAFAAEAAADu//r/AQAFAAEAAADv//r/AQAFAAEAAADw//r/AQAFAAEAAADx//r/AQAFAAEAAADy//r/AQAFAAEAAADz//r/AQAFAAEAAAD0//r/AQAFAAEAAAD1//r/AQAFAAEAAADt//v/AQAFAAEAAADu//v/AQAFAAEAAADv//v/AQAFAAEAAADw//v/AQAFAAEAAADx//v/AQAFAAEAAADy//v/AQAFAAEAAADz//v/AQAFAAEAAAD0//v/AQAFAAEAAAD1//v/AQAFAAEAAADt//z/AQAFAAIAAADu//z/AQAFAAIAAADw//z/AQAFAAIAAADx//z/AQAFAAIAAADy//z/AQAFAAIAAADz//z/AQAFAAIAAAD0//z/AQAFAAIAAAD1//z/AQAFAAIAAADv//z/AQAFAAIAAADt//3/AQAFAAMAAADu//3/AQAFAAMAAADv//3/AQAFAAMAAADw//3/AQAFAAMAAADx//3/AQAFAAMAAADy//3/AQAFAAMAAADz//3/AQAFAAMAAAD0//3/AQAFAAMAAAD1//3/AQAFAAMAAAA=")
+tile_map_data = PackedByteArray("AADt//n/AQAFAAAAAADu//n/AQAFAAAAAADv//n/AQAFAAAAAADw//n/AQAFAAAAAADx//n/AQAFAAAAAADy//n/AQAFAAAAAADz//n/AQAFAAAAAAD0//n/AQAFAAAAAAD1//n/AQAFAAAAAADt//j/AQAEAAAAAADu//j/AQAEAAAAAADv//j/AQAEAAAAAADw//j/AQAEAAAAAADx//j/AQAEAAAAAADy//j/AQAEAAAAAADz//j/AQAEAAAAAAD0//j/AQAEAAAAAAD1//j/AQAEAAAAAADt//r/AQAFAAEAAADu//r/AQAFAAEAAADv//r/AQAFAAEAAADw//r/AQAFAAEAAADx//r/AQAFAAEAAADy//r/AQAFAAEAAADz//r/AQAFAAEAAAD0//r/AQAFAAEAAAD1//r/AQAFAAEAAADt//v/AQAFAAEAAADu//v/AQAFAAEAAADv//v/AQAFAAEAAADw//v/AQAFAAEAAADx//v/AQAFAAEAAADy//v/AQAFAAEAAADz//v/AQAFAAEAAAD0//v/AQAFAAEAAAD1//v/AQAFAAEAAADt//z/AQAFAAIAAADu//z/AQAFAAIAAADw//z/AQAFAAIAAADx//z/AQAFAAIAAADy//z/AQAFAAIAAADz//z/AQAFAAIAAAD0//z/AQAFAAIAAAD1//z/AQAFAAIAAADv//z/AQAFAAIAAADt//3/AQAFAAMAAADu//3/AQAFAAMAAADv//3/AQAFAAMAAADw//3/AQAFAAMAAADx//3/AQAFAAMAAADy//3/AQAFAAMAAADz//3/AQAFAAMAAAD0//3/AQAFAAMAAAD1//3/AQAFAAMAAADt//7/AQAFAAMAAADt////AQAFAAMAAADu//7/AQAFAAMAAADu////AQAFAAMAAADv//7/AQAFAAMAAADv////AQAFAAMAAADw//7/AQAFAAMAAADw////AQAFAAMAAADx//7/AQAFAAMAAADx////AQAFAAMAAADy//7/AQAFAAMAAADy////AQAFAAMAAADz//7/AQAFAAMAAADz////AQAFAAMAAAD0//7/AQAFAAMAAAD0////AQAFAAMAAAD1//7/AQAFAAMAAAD1////AQAFAAMAAAA=")
 tile_set = SubResource("TileSet_u5sy4")
 
 [node name="Buttons" type="Control" parent="."]
@@ -149,16 +141,19 @@ rotation = -0.12915437
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-235, -79)
 zoom = Vector2(9, 9)
+limit_left = -302
+limit_top = -128
+limit_right = -160
+limit_bottom = -20
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 0.2
+script = ExtResource("12_kvuet")
 
 [node name="fade_transition" parent="." instance=ExtResource("12_dinhu")]
 visible = false
 
 [node name="FadeTimer" type="Timer" parent="fade_transition"]
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-260, -69)
-color = Color(0.8022452, 0.40879318, 0.17350036, 1)
-texture = SubResource("GradientTexture2D_kvuet")
 
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Buttons/CharactersButton" to="." method="_on_characters_button_pressed"]

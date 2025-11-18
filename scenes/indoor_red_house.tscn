@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bghsulxafnt5r"]
+[gd_scene load_steps=10 format=4 uid="uid://bghsulxafnt5r"]
 
 [ext_resource type="Texture2D" uid="uid://b0yp57dmp1r23" path="res://assets/sprites/inside-house.png" id="1_g4ukx"]
 [ext_resource type="Script" uid="uid://ctc1oh1cc0sw3" path="res://script/indoor_red_house.gd" id="1_pabqj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="4_8g7c7"]
 [ext_resource type="PackedScene" uid="uid://cwp0cvtrp30pq" path="res://scenes/lightbulb.tscn" id="4_rvmji"]
 [ext_resource type="PackedScene" uid="uid://colngi77evrn3" path="res://scenes/candle.tscn" id="5_3cg11"]
+[ext_resource type="Script" uid="uid://3inedt7vwkw7" path="res://script/camera_2d.gd" id="6_ymwsl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8g7c7"]
 texture = ExtResource("1_g4ukx")
@@ -77,9 +78,13 @@ position = Vector2(26, 11)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)
-limit_left = -126
-limit_top = -94
-limit_right = 146
-limit_bottom = 47
+limit_left = -140
+limit_top = -220
+limit_right = 155
+limit_bottom = 55
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 1.5
+script = ExtResource("6_ymwsl")
 
 [node name="fade_transition" parent="." instance=ExtResource("4_8g7c7")]
