@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://c2mdhj2si8wyb"]
+[gd_scene load_steps=9 format=4 uid="uid://c2mdhj2si8wyb"]
 
+[ext_resource type="Script" uid="uid://c1otqgqbqqo11" path="res://script/indoor_blue_house.gd" id="1_dausc"]
 [ext_resource type="Texture2D" uid="uid://b0yp57dmp1r23" path="res://assets/sprites/inside-house.png" id="1_prnd0"]
 [ext_resource type="PackedScene" uid="uid://cwp0cvtrp30pq" path="res://scenes/lightbulb.tscn" id="2_2t2ib"]
 [ext_resource type="PackedScene" uid="uid://colngi77evrn3" path="res://scenes/candle.tscn" id="3_4lt7h"]
 [ext_resource type="Script" uid="uid://3inedt7vwkw7" path="res://script/camera_2d.gd" id="4_2t2ib"]
+[ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="6_dx6a8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dausc"]
 texture = ExtResource("1_prnd0")
@@ -70,6 +72,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_dausc")
 
 [node name="indoor_blue_house" type="Node2D"]
+script = ExtResource("1_dausc")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dx6a8")
@@ -107,3 +110,9 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 1.75
 script = ExtResource("4_2t2ib")
+
+[node name="fade_transition" parent="." instance=ExtResource("6_dx6a8")]
+offset_left = -7025.0
+offset_top = -3687.0
+offset_right = 959.0
+offset_bottom = 687.0

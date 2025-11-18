@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://6fbm3euyryor"]
+[gd_scene load_steps=19 format=4 uid="uid://6fbm3euyryor"]
 
 [ext_resource type="Script" uid="uid://bn6dby6jckn38" path="res://script/start_game.gd" id="1_tq2sd"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="2_2aiwh"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dw1ip82cb2pkl" path="res://assets/sprites/househover.png" id="4_ya1w5"]
 [ext_resource type="Texture2D" uid="uid://bmn7vxop3j4q8" path="res://assets/sprites/bLUEhOUSE.png" id="5_4ty0x"]
 [ext_resource type="Texture2D" uid="uid://dgrmdreumpiua" path="res://assets/sprites/bLUEhOUSEhover.png" id="6_oyaqm"]
+[ext_resource type="Texture2D" uid="uid://cp54h45cu4pv4" path="res://assets/sprites/YellowHouse.png" id="7_oyaqm"]
+[ext_resource type="Texture2D" uid="uid://4su6quuiimuv" path="res://assets/sprites/YellowHouseHover.png" id="8_g0qae"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcjs8"]
 texture = ExtResource("4_qr1nj")
@@ -58,6 +60,25 @@ gradient = SubResource("Gradient_wcjs8")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="Gradient" id="Gradient_oyaqm"]
+offsets = PackedFloat32Array(0, 0.6533333)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g0qae"]
+gradient = SubResource("Gradient_oyaqm")
+fill = 1
+fill_from = Vector2(0.5046729, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_gyxdi"]
+offsets = PackedFloat32Array(0, 0.7)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fr1gt"]
+gradient = SubResource("Gradient_gyxdi")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="StartGame" type="Node2D"]
 script = ExtResource("1_tq2sd")
 
@@ -73,7 +94,7 @@ tile_set = SubResource("TileSet_qr1nj")
 [node name="mid" type="TileMapLayer" parent="TileMap"]
 z_index = 2
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAfABMAAAADAAMAAAAfABIAAAADAAIAAAAfABEAAAADAAIAAAAfABAAAAADAAEAAAAYABMAAAADAAMAAAAYABIAAAADAAIAAAAYABEAAAADAAEAAAAiABMAAAABAAMAAAAeABMAAAAAAAMAAAAgABMAAAACAAMAAAAbABMAAAAAAAMAAQAcABMAAAABAAMAAAAlABMAAAAAAAMAAQAhABMAAAAAAAMAAQAoABAAAAADAAIAAAAoABEAAAADAAIAAAAoABIAAAADAAIAAAAoAA8AAAADAAEAAAAmABMAAAAAAAMAAQAXABMAAAAAAAMAAAAWABMAAAABAAMAAAAVABMAAAADAAMAAAAVABIAAAADAAEAAAATABMAAAADAAMAAQATABIAAAADAAIAAQATABEAAAADAAIAAQATABAAAAADAAEAAQAUABMAAAABAAMAAAASABMAAAAAAAMAAAARABMAAAAAAAMAAQAnABMAAAADAAAAAAApABMAAAAAAAMAAQAoABMAAAADAAMAAAAjABMAAAADAAMAAQAjABIAAAADAAIAAQAjABEAAAADAAEAAQAkABMAAAACAAMAAAA=")
+tile_map_data = PackedByteArray("AAAfABMAAAADAAMAAAAfABIAAAADAAIAAAAfABEAAAADAAIAAAAfABAAAAADAAEAAAAYABMAAAADAAMAAAAYABIAAAADAAEAAAAeABMAAAAAAAMAAAAgABMAAAACAAMAAAAcABMAAAABAAMAAAAlABMAAAAAAAMAAQAhABMAAAAAAAMAAQAoABAAAAADAAIAAAAoABEAAAADAAIAAAAoABIAAAADAAIAAAAoAA8AAAADAAEAAAAXABMAAAAAAAMAAAAVABMAAAAAAAMAAQAVABIAAAADAAEAAAAUABMAAAABAAMAAAASABMAAAAAAAMAAAARABMAAAAAAAMAAQAnABMAAAADAAAAAAApABMAAAAAAAMAAQAoABMAAAADAAMAAAAkABMAAAACAAMAAAATABMAAAADAAMAAAATABAAAAADAAIAAAATABEAAAADAAIAAAATABIAAAADAAIAAAATAA8AAAADAAEAAAAWABMAAAABAAMAAAAaABMAAAADAAMAAQAaABIAAAADAAIAAAAaABEAAAADAAEAAAAZABMAAAACAAMAAAA=")
 tile_set = SubResource("TileSet_qr1nj")
 
 [node name="Button Control" type="Control" parent="."]
@@ -86,9 +107,9 @@ offset_bottom = 40.0
 [node name="RedButton" type="TextureButton" parent="Button Control"]
 z_index = 1
 layout_mode = 0
-offset_left = 386.0
+offset_left = 420.0
 offset_top = 256.0
-offset_right = 450.0
+offset_right = 484.0
 offset_bottom = 320.0
 texture_normal = ExtResource("2_wcjs8")
 texture_hover = ExtResource("4_ya1w5")
@@ -100,12 +121,63 @@ texture = SubResource("GradientTexture2D_qr1nj")
 
 [node name="BlueButton" type="TextureButton" parent="Button Control"]
 layout_mode = 0
-offset_left = 478.0
-offset_top = 256.0
-offset_right = 590.0
-offset_bottom = 320.0
+offset_left = 536.0
+offset_top = 257.0
+offset_right = 648.0
+offset_bottom = 321.0
 texture_normal = ExtResource("5_4ty0x")
 texture_hover = ExtResource("6_oyaqm")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button Control/BlueButton"]
+position = Vector2(75, 37)
+color = Color(0.89041555, 0.61806047, 0.4183951, 1)
+energy = 0.2
+texture = SubResource("GradientTexture2D_g0qae")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Button Control/BlueButton"]
+position = Vector2(61, 50)
+color = Color(0.6313726, 1, 1, 1)
+energy = 0.2
+texture = SubResource("GradientTexture2D_g0qae")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Button Control/BlueButton"]
+position = Vector2(90, 51)
+color = Color(0.6313726, 1, 1, 1)
+energy = 0.2
+texture = SubResource("GradientTexture2D_g0qae")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Button Control/BlueButton"]
+position = Vector2(35, 58)
+color = Color(0.6313726, 1, 1, 1)
+energy = 0.25
+texture = SubResource("GradientTexture2D_g0qae")
+
+[node name="YellowButton" type="TextureButton" parent="Button Control"]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 240.0
+offset_right = 372.0
+offset_bottom = 368.0
+texture_normal = ExtResource("7_oyaqm")
+texture_hover = ExtResource("8_g0qae")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button Control/YellowButton"]
+position = Vector2(40, 31)
+color = Color(0.6117647, 0.54509807, 0.85882354, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_fr1gt")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Button Control/YellowButton"]
+position = Vector2(25, 64)
+color = Color(0.6117647, 0.54509807, 0.85882354, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_fr1gt")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Button Control/YellowButton"]
+position = Vector2(55, 62)
+color = Color(0.6117647, 0.54509807, 0.85882354, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_fr1gt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(487, 273)
@@ -120,10 +192,10 @@ position_smoothing_speed = 0.5
 script = ExtResource("4_mc8qq")
 
 [node name="fade_transition" parent="." instance=ExtResource("2_2aiwh")]
-offset_left = -5446.0
-offset_top = -2769.0
-offset_right = 2538.0
-offset_bottom = 1605.0
+offset_left = -5406.0
+offset_top = -2735.0
+offset_right = 2578.0
+offset_bottom = 1639.0
 
 [node name="FadeTimer" type="Timer" parent="fade_transition"]
 
@@ -131,4 +203,6 @@ offset_bottom = 1605.0
 [connection signal="pressed" from="Button Control/RedButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button Control/BlueButton" to="." method="_on_blue_button_pressed"]
 [connection signal="pressed" from="Button Control/BlueButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Button Control/YellowButton" to="." method="_on_edificio_button_pressed"]
+[connection signal="pressed" from="Button Control/YellowButton" to="." method="_on_yellow_button_pressed"]
 [connection signal="timeout" from="fade_transition/FadeTimer" to="." method="_on_fade_timer_timeout"]
