@@ -98,3 +98,13 @@ func _on_animated_sprite_2d_animation_finished():
 			change_state("idle_sit")
 		"stand_up":
 			change_state("idle_stand")
+
+
+
+
+
+func _on_click_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		Input.set_custom_mouse_cursor(pointer, Input.CURSOR_ARROW, Vector2(16,16))
+		get_tree().change_scene_to_file("res://scenes/panda's_minigame_selection.tscn")
+		

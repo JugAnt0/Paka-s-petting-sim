@@ -43,6 +43,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+
+
 	# move ground
 	g1.position.x -= scroll_speed * delta
 	g2.position.x -= scroll_speed * delta
@@ -66,3 +68,6 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	spawn_obstacle()
+
+func _on_speed_timer_timeout():
+	scroll_speed += 2   

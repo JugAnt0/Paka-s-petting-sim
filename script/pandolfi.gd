@@ -24,7 +24,7 @@ func _physics_process(delta):
 	
 func die():
 	Engine.time_scale = 0.5
-	$DeathTimer.start()
+	timer.start()
 
 func _on_death_timer_timeout():
 	Engine.time_scale = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://0wd6ww2t7od8"]
+[gd_scene load_steps=38 format=4 uid="uid://0wd6ww2t7od8"]
 
 [ext_resource type="Script" uid="uid://cndo3fdlfa4pq" path="res://script/panda's_automatic_platformer.gd" id="1_oyc3t"]
 [ext_resource type="Texture2D" uid="uid://c41jkf66ip1it" path="res://assets/sprites/ground.png" id="1_yk78b"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://baiqektw05ynr" path="res://script/spikes.gd" id="3_lualr"]
 [ext_resource type="Texture2D" uid="uid://mcyisypobpom" path="res://assets/sprites/waterthingy.png" id="4_vfnal"]
 [ext_resource type="Texture2D" uid="uid://b6edpe3dowbeo" path="res://assets/sprites/spikes.png" id="5_asp4k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y2f1n"]
+radius = 2.0
+height = 10.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqobb"]
 texture = ExtResource("1_yk78b")
@@ -250,11 +254,9 @@ script = ExtResource("2_y2f1n")
 position = Vector2(44, 0)
 texture = ExtResource("4_vfnal")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObstacleTemplates/waterthingy"]
-position = Vector2(44, -1.6687498)
-scale = Vector2(1, 0.8125)
-polygon = PackedVector2Array(2, 4.5153847, 3, -2, 1, -2.8692312, -2, -2.8692312, -4, -2, -3, 4.5153847, -3, 9.438461, -5, 10.669231, 4, 10.669231, 2, 9.438461)
-disabled = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleTemplates/waterthingy"]
+position = Vector2(43, 1)
+shape = SubResource("CapsuleShape2D_y2f1n")
 
 [node name="spikes" type="Area2D" parent="ObstacleTemplates"]
 visible = false
@@ -314,7 +316,12 @@ autostart = true
 wait_time = 0.5
 one_shot = true
 
+[node name="SpeedTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [connection signal="body_entered" from="ObstacleTemplates/waterthingy" to="ObstacleTemplates/waterthingy" method="_on_body_entered"]
 [connection signal="body_entered" from="ObstacleTemplates/spikes" to="ObstacleTemplates/spikes" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="Pandolfi" method="_on_death_timer_timeout"]
+[connection signal="timeout" from="SpeedTimer" to="." method="_on_speed_timer_timeout"]

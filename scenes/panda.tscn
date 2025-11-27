@@ -3,83 +3,79 @@
 [ext_resource type="Texture2D" uid="uid://cqlbk6uffd80a" path="res://assets/sprites/Black cat-Sheet.png" id="1_h3ib2"]
 [ext_resource type="Script" uid="uid://cgm0gw6kxac57" path="res://script/panda.gd" id="1_xyeg1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_whtoq"]
-atlas = ExtResource("1_h3ib2")
-region = Rect2(40, 32, 40, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyeg1"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(0, 32, 40, 32)
+region = Rect2(40, 64, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_228n7"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(40, 32, 40, 32)
+region = Rect2(0, 64, 40, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h3ib2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_whtoq"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(80, 0, 40, 32)
+region = Rect2(40, 64, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_265ov"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(40, 32, 40, 32)
+region = Rect2(0, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gyoj6"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(80, 32, 40, 32)
+region = Rect2(40, 64, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xspkt"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(0, 0, 40, 32)
+region = Rect2(80, 64, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3lrr7"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(0, 0, 40, 32)
+region = Rect2(0, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5ks1"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(40, 0, 40, 32)
+region = Rect2(40, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xeo4p"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(80, 0, 40, 32)
+region = Rect2(80, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ebnsh"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(120, 0, 40, 32)
+region = Rect2(120, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ckwg5"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(160, 0, 40, 32)
+region = Rect2(160, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nivvr"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(200, 0, 40, 32)
+region = Rect2(200, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4e4xb"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(240, 0, 40, 32)
+region = Rect2(240, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iqe55"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(280, 0, 40, 32)
+region = Rect2(280, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1nk00"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(320, 0, 40, 32)
+region = Rect2(320, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6vn4o"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(360, 0, 40, 32)
+region = Rect2(360, 32, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1tnsx"]
 atlas = ExtResource("1_h3ib2")
-region = Rect2(400, 0, 40, 32)
+region = Rect2(400, 32, 40, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n7l22"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_whtoq")
+"texture": SubResource("AtlasTexture_xyeg1")
 }],
 "loop": true,
 "name": &"sit",
@@ -87,10 +83,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xyeg1")
+"texture": SubResource("AtlasTexture_228n7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_228n7")
+"texture": SubResource("AtlasTexture_whtoq")
 }],
 "loop": false,
 "name": &"sit_down",
@@ -98,16 +94,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h3ib2")
+"texture": SubResource("AtlasTexture_265ov")
 }],
 "loop": true,
 "name": &"stand",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_265ov")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gyoj6")
 }, {
@@ -160,6 +153,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gam3p"]
 size = Vector2(29, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyeg1"]
+size = Vector2(29, 16)
+
 [node name="Panda" type="CharacterBody2D"]
 input_pickable = true
 script = ExtResource("1_xyeg1")
@@ -167,13 +163,19 @@ script = ExtResource("1_xyeg1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_n7l22")
-animation = &"stand"
+animation = &"sit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.5, 0)
 shape = SubResource("RectangleShape2D_gam3p")
 
 [node name="StateTimer" type="Timer" parent="."]
+
+[node name="ClickArea" type="Area2D" parent="."]
+
+[node name="ClickShape" type="CollisionShape2D" parent="ClickArea"]
+position = Vector2(3.5, 0)
+shape = SubResource("RectangleShape2D_xyeg1")
 
 [connection signal="editor_state_changed" from="." to="." method="_on_editor_state_changed"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
@@ -182,3 +184,4 @@ shape = SubResource("RectangleShape2D_gam3p")
 [connection signal="mouse_exited" from="." to="." method="_on_panda_mouse_exited"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]
