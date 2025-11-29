@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 var state := "idle_stand"
 var speed := 20
-var direction := 1   # 1 = right, -1 = left
+var direction := 1  
 var left_bound := -350
 var right_bound := 190
 var pointer = preload("res://assets/sprites/pointer.png")
@@ -42,25 +42,20 @@ func change_state(new_state):
 
 		"wander":
 			anim.play("walk")
-			# choose left or right
+			
 			direction = 1 if randf() > 0.5 else -1
 			timer.start(randf_range(2.0, 6.0))
 
 
 func _physics_process(delta):
 	velocity.y = 0
-
-	# Move only while wandering
 	if state == "wander":
 		velocity.x = direction * speed
 	else:
 		velocity.x = 0
 
-	# FLIP always based on movement
 	anim.flip_h = direction < 0
 
-	# BOUNDS — VERY IMPORTANT:
-	# (Turn around immediately and DO NOT change state)
 	if global_position.x < left_bound:
 		global_position.x = left_bound
 		direction = 1
@@ -88,7 +83,6 @@ func _on_state_timer_timeout():
 				change_state("wander")
 
 		"wander":
-			# stop wandering without choosing a new direction yet
 			change_state("idle_stand")
 
 
