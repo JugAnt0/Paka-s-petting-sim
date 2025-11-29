@@ -48,12 +48,12 @@ tile_set = SubResource("TileSet_gqtj4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(9, 9)
-limit_left = -69
-limit_top = -40
-limit_right = 69
-limit_bottom = 40
+limit_left = -77
+limit_top = -44
+limit_right = 77
+limit_bottom = 44
 position_smoothing_enabled = true
-position_smoothing_speed = 0.5
+position_smoothing_speed = 1.0
 script = ExtResource("2_ngbor")
 
 [node name="Buttons" type="Node2D" parent="."]

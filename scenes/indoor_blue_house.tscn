@@ -128,6 +128,9 @@ position = Vector2(40, -157)
 [node name="lightbulb4" parent="TileMap" instance=ExtResource("2_2t2ib")]
 position = Vector2(8, -35)
 
+[node name="candle3" parent="TileMap" instance=ExtResource("3_4lt7h")]
+position = Vector2(-309, 12)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 limit_left = -380
@@ -146,4 +149,4 @@ offset_right = 959.0
 offset_bottom = 687.0
 
 [node name="Panda" parent="." instance=ExtResource("7_dx6a8")]
-position = Vector2(-277, 24)
+position = Vector2(-80, 24)

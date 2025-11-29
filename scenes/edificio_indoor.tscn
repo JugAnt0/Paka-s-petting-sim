@@ -140,4 +140,4 @@ position = Vector2(152, -28)
 
 [node name="Flora" parent="." instance=ExtResource("7_orac0")]
 z_index = 5
-position = Vector2(-85, 39)
+position = Vector2(47, 39)
