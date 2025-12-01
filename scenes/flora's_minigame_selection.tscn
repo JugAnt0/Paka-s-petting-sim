@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bducxxvcfdnon"]
+[gd_scene load_steps=12 format=4 uid="uid://bducxxvcfdnon"]
 
 [ext_resource type="Texture2D" uid="uid://c41jkf66ip1it" path="res://assets/sprites/ground.png" id="1_iwx5d"]
 [ext_resource type="Script" uid="uid://bb3pa5ag2vy4h" path="res://script/flora's_minigame_selection.gd" id="1_nw1b2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dl8fs7d20bvl" path="res://assets/sprites/sprites/BUTTONS/Go_Back.png" id="6_kis5b"]
 [ext_resource type="Texture2D" uid="uid://boqv7aiafy7od" path="res://assets/sprites/sprites/BUTTONS/Go_Back_hover.png" id="7_o38yv"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="8_wt67m"]
+[ext_resource type="Texture2D" uid="uid://o1imt1m280sk" path="res://assets/sprites/sprites/BUTTONS/Black n white Cat display.png" id="9_q24qr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_01wtg"]
 texture = ExtResource("1_iwx5d")
@@ -45,11 +46,11 @@ tile_map_data = PackedByteArray("AAD2//3/AAAFAAAAAAD3//3/AAAFAAAAAAD4//3/AAAFAAA
 tile_set = SubResource("TileSet_38j16")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(8, 8)
-limit_left = -88
-limit_top = -55
-limit_right = 88
-limit_bottom = 55
+zoom = Vector2(9, 9)
+limit_left = -77
+limit_top = -44
+limit_right = 77
+limit_bottom = 44
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 script = ExtResource("2_yuuly")
@@ -76,6 +77,12 @@ texture_hover = ExtResource("7_o38yv")
 
 [node name="FadeTimer" type="Timer" parent="fade_transition"]
 one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="BlackNWhiteCatDisplay" type="Sprite2D" parent="."]
+position = Vector2(-28, -1)
+texture = ExtResource("9_q24qr")
 
 [connection signal="pressed" from="Buttons/SkyHigh" to="." method="_on_sky_high_pressed"]
 [connection signal="pressed" from="Buttons/GoBack" to="." method="_on_go_back_pressed"]

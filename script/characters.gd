@@ -10,7 +10,7 @@ func _on_black_d_b_pressed() -> void:
 
 
 func _on_orange_d_b_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/panda's_minigame_selection.tscn")
+	get_tree().change_scene_to_file("res://scenes/bellist's_minigame_selection.tscn")
 	
 
 func _on_black_n_white_d_b_pressed() -> void:

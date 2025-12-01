@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d12fl1b235c3f"]
+[gd_scene load_steps=5 format=3 uid="uid://d12fl1b235c3f"]
 
 [ext_resource type="Script" uid="uid://boelyemrwrnwf" path="res://script/door.gd" id="1_hpvv5"]
+[ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="2_uvdjg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvdjg"]
 size = Vector2(20, 31)
@@ -30,6 +31,13 @@ orbit_velocity_max = 3.0
 scale_amount_curve = SubResource("Curve_hpvv5")
 color = Color(1, 0.80784315, 0.6039216, 0.7764706)
 
+[node name="fade_transition" parent="." instance=ExtResource("2_uvdjg")]
+visible = false
+
+[node name="FadeTimer" type="Timer" parent="fade_transition"]
+one_shot = true
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="fade_transition/FadeTimer" to="." method="_on_fade_timer_timeout"]

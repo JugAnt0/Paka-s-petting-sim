@@ -3,6 +3,6 @@ extends Camera2D
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if flora.global_position.y < global_position.y:
 		global_position.y = flora.global_position.y

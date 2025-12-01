@@ -101,10 +101,10 @@ func _on_animated_sprite_2d_animation_finished():
 
 
 
-func _on_click_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_click_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		Input.set_custom_mouse_cursor(pointer, Input.CURSOR_ARROW, Vector2(16,16))
-		get_tree().change_scene_to_file("res://scenes/flora's_minigame_selection.tscn")
+		get_tree().change_scene_to_file("res://scenes/bellist's_minigame_selection.tscn")
 
 var pointer = preload("res://assets/sprites/pointer.png")
 var cat = preload("res://assets/sprites/Cat-cursor.png")

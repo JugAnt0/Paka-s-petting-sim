@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if velocity.y > 0:  
 		velocity.y = JUMP_SPEED
 		animated_sprite.play("jumping")

@@ -39,7 +39,7 @@ func _ready() -> void:
 	spawn_y = min(platform_still.global_position.y, platform_moving.global_position.y)
 	bg_height = bg1.texture.get_height() * bg1.scale.y
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 
 	# Camera follows player
 	cam_y = camera.global_position.y
