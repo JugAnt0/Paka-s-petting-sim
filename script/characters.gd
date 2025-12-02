@@ -18,7 +18,7 @@ func _on_black_n_white_d_b_pressed() -> void:
 
 
 func _on_siamese_d_b_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/flora's_minigame_selection.tscn")
+	get_tree().change_scene_to_file("res://scenes/shanny's_minigame_selection.tscn")
 
 
 func _on_go_back_pressed() -> void:
