@@ -128,8 +128,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_m3r32")
 }],
 "loop": true,
-"name": &"run",
-"speed": 11.0
+"name": &"running",
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -192,8 +192,7 @@ script = ExtResource("2_rdp1e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flora"]
 sprite_frames = SubResource("SpriteFrames_rdp1e")
-animation = &"run"
-autoplay = "run"
+animation = &"running"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flora"]
 position = Vector2(2, 2)

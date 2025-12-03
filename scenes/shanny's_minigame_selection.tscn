@@ -63,6 +63,8 @@ limit_left = -77
 limit_top = -44
 limit_right = 77
 limit_bottom = 44
+position_smoothing_enabled = true
+position_smoothing_speed = 0.5
 script = ExtResource("6_71j2l")
 
 [node name="fade_transition" parent="." instance=ExtResource("7_ebdoy")]

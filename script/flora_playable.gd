@@ -19,15 +19,19 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_SPEED
 		
-	if velocity.y < 0:
-		animated_sprite.play("jumping") 
-	elif velocity.y > 0:
-		animated_sprite.play("falling")  
-	else:
-		if direction == 0:
-			animated_sprite.play("sit") 
+# Animation logic
+	if is_on_floor():
+		if direction != 0:
+			animated_sprite.play("running")
 		else:
-			animated_sprite.play("run")   
+			animated_sprite.play("sit") # or idle if you have one
+	else:
+		if velocity.y < 0:
+			animated_sprite.play("jumping")
+		else:
+			animated_sprite.play("falling")
+
+	  
 
 
 	move_and_slide()
