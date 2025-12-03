@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://6fbm3euyryor"]
+[gd_scene load_steps=24 format=4 uid="uid://6fbm3euyryor"]
 
 [ext_resource type="Script" uid="uid://bn6dby6jckn38" path="res://script/start_game.gd" id="1_tq2sd"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="2_2aiwh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://6upifskq0adc" path="res://assets/sprites/back-front.png" id="4_vpf27"]
 [ext_resource type="Texture2D" uid="uid://dw1ip82cb2pkl" path="res://assets/sprites/househover.png" id="4_ya1w5"]
 [ext_resource type="Texture2D" uid="uid://bmn7vxop3j4q8" path="res://assets/sprites/bLUEhOUSE.png" id="5_4ty0x"]
+[ext_resource type="Texture2D" uid="uid://bheejfcror6km" path="res://assets/sprites/sprites/paka's petting sim/ground.png" id="6_e8p0f"]
 [ext_resource type="Texture2D" uid="uid://dgrmdreumpiua" path="res://assets/sprites/bLUEhOUSEhover.png" id="6_oyaqm"]
 [ext_resource type="Texture2D" uid="uid://cp54h45cu4pv4" path="res://assets/sprites/YellowHouse.png" id="7_oyaqm"]
 [ext_resource type="Texture2D" uid="uid://4su6quuiimuv" path="res://assets/sprites/YellowHouseHover.png" id="8_g0qae"]
@@ -51,8 +52,42 @@ texture = ExtResource("4_qr1nj")
 3:3/1/z_index = 6
 5:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpf27"]
+texture = ExtResource("6_e8p0f")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_qr1nj"]
 sources/0 = SubResource("TileSetAtlasSource_wcjs8")
+sources/1 = SubResource("TileSetAtlasSource_vpf27")
 
 [sub_resource type="Gradient" id="Gradient_wcjs8"]
 offsets = PackedFloat32Array(0, 0.6933333)
@@ -138,7 +173,7 @@ tile_set = SubResource("TileSet_qr1nj")
 [node name="mid" type="TileMapLayer" parent="TileMap"]
 z_index = 2
 use_parent_material = true
-tile_map_data = PackedByteArray("AADy/wIAAAADAAMAAADy/wEAAAADAAIAAADy/wAAAAADAAIAAADy////AAADAAEAAAD8/wIAAAADAAMAAAD8/wEAAAADAAIAAAD8/wAAAAADAAIAAAD8////AAADAAEAAAADAAIAAAADAAMAAAADAAEAAAADAAIAAAADAAAAAAADAAIAAAADAP7/AAADAAIAAAADAP//AAADAAIAAAADAP3/AAADAAEAAAAQAAIAAAADAAMAAAAQAAEAAAADAAIAAAAQAAAAAAADAAIAAAAQAP//AAADAAEAAADt/wIAAAADAAMAAADt//7/AAADAAIAAADt////AAADAAIAAADt/wAAAAADAAIAAADt/wEAAAADAAIAAADt//3/AAADAAEAAAD2/wIAAAADAAMAAAD2////AAADAAIAAAD2/wAAAAADAAIAAAD2/wEAAAADAAIAAAD2//7/AAADAAEAAAALAP//AAADAAEAAAALAAIAAAADAAMAAAALAAAAAAADAAIAAAALAAEAAAADAAIAAADz/wIAAAAAAAMAAAD0/wIAAAACAAMAAAD3/wIAAAAAAAMAAQAAAAIAAAAAAAMAAAAFAAIAAAABAAMAAAAJAAIAAAAAAAMAAQAKAAIAAAABAAMAAAD4/wIAAAAAAAMAAAD5/wIAAAAAAAMAAAD6/wIAAAACAAMAAAD9/wIAAAACAAMAAADx/wIAAAABAAMAAAANAAIAAAADAAAAAAAMAAIAAAAAAAMAAAAOAAIAAAACAAMAAADu/wIAAAAAAAMAAADs/wIAAAABAAMAAADv/wIAAAACAAMAAAASAAIAAAAAAAMAAAARAAIAAAACAAMAAAATAAIAAAABAAMAAAAUAAIAAAAAAAMAAQA=")
+tile_map_data = PackedByteArray("AADy/wIAAAADAAMAAADy/wEAAQAEAAIAAADy/wAAAAADAAIAAADy////AAADAAEAAAD8/wIAAAADAAMAAAD8/wEAAQACAAQAAAD8/wAAAAADAAIAAAD8////AAADAAEAAAADAAIAAAADAAMAAAADAAEAAQADAAIAAAADAAAAAAADAAIAAAADAP7/AQAEAAEAAAADAP//AAADAAIAAAADAP3/AAADAAEAAAAQAAIAAAADAAMAAAAQAAEAAQAEAAMAAAAQAAAAAAADAAIAAAAQAP//AAADAAEAAADt/wIAAAADAAMAAADt//7/AAADAAIAAADt////AAADAAIAAADt/wAAAQACAAQAAADt/wEAAAADAAIAAADt//3/AAADAAEAAAD2/wIAAAADAAMAAAD2////AAADAAIAAAD2/wAAAAADAAIAAAD2/wEAAAADAAIAAAD2//7/AAADAAEAAAALAP//AAADAAEAAAALAAIAAAADAAMAAAALAAAAAQAEAAMAAAALAAEAAAADAAIAAADz/wIAAAAAAAMAAAD0/wIAAAACAAMAAAD3/wIAAAAAAAMAAQAAAAIAAAAAAAMAAAAFAAIAAAABAAMAAAAJAAIAAAAAAAMAAQAKAAIAAAABAAMAAAD4/wIAAAAAAAMAAAD5/wIAAAAAAAMAAAD6/wIAAAACAAMAAAD9/wIAAAACAAMAAADx/wIAAAABAAMAAAANAAIAAAADAAAAAAAMAAIAAAAAAAMAAAAOAAIAAAACAAMAAADu/wIAAAAAAAMAAADs/wIAAAABAAMAAADv/wIAAAACAAMAAAASAAIAAAAAAAMAAAARAAIAAAACAAMAAAATAAIAAAABAAMAAAAUAAIAAAAAAAMAAQA=")
 tile_set = SubResource("TileSet_qr1nj")
 
 [node name="Button Control" type="Control" parent="."]

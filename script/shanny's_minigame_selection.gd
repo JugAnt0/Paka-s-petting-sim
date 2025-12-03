@@ -18,9 +18,17 @@ func _on_go_back_pressed() -> void:
 	
 
 func _on_fade_timer_timeout():
-	
+	if button_type == "JumpQueen":
+		get_tree().change_scene_to_file("res://scenes/shany's_jump_queen.tscn")
 	if button_type == "GoBack":
 		
 		var previous_scene = SceneMemory.pop_scene()
 		if previous_scene != "":
 			get_tree().change_scene_to_file(previous_scene)
+
+
+func _on_texture_button_pressed() -> void:
+	button_type = "JumpQueen"
+	$fade_transition.show()
+	$fade_transition/FadeTimer.start()
+	$fade_transition/AnimationPlayer.play("fade_in")

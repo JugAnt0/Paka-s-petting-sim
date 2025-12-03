@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://d3oj0xqj6ji1c"]
+[gd_scene load_steps=12 format=4 uid="uid://d3oj0xqj6ji1c"]
 
 [ext_resource type="Script" uid="uid://bwacwh6hdhagj" path="res://script/shanny's_minigame_selection.gd" id="1_pblcd"]
 [ext_resource type="Texture2D" uid="uid://bheejfcror6km" path="res://assets/sprites/sprites/paka's petting sim/ground.png" id="2_532vj"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dl8fs7d20bvl" path="res://assets/sprites/sprites/BUTTONS/Go_Back.png" id="4_qwu20"]
 [ext_resource type="Texture2D" uid="uid://boqv7aiafy7od" path="res://assets/sprites/sprites/BUTTONS/Go_Back_hover.png" id="5_0neaq"]
 [ext_resource type="Script" uid="uid://3inedt7vwkw7" path="res://script/camera_2d.gd" id="6_71j2l"]
+[ext_resource type="Texture2D" uid="uid://dgyjg6veioyna" path="res://assets/sprites/sprites/BUTTONS/JumpQueen.png" id="6_g2kx4"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="7_ebdoy"]
+[ext_resource type="Texture2D" uid="uid://ecw85lctnlqa" path="res://assets/sprites/sprites/BUTTONS/JumpQueenHover.png" id="7_qwu20"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4tew"]
 texture = ExtResource("2_532vj")
@@ -57,6 +59,13 @@ offset_bottom = 23.0
 texture_normal = ExtResource("4_qwu20")
 texture_hover = ExtResource("5_0neaq")
 
+[node name="TextureButton" type="TextureButton" parent="Buttons"]
+offset_left = 4.0
+offset_top = -16.0
+offset_right = 68.0
+texture_normal = ExtResource("6_g2kx4")
+texture_hover = ExtResource("7_qwu20")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(9, 9)
 limit_left = -77
@@ -70,6 +79,8 @@ script = ExtResource("6_71j2l")
 [node name="fade_transition" parent="." instance=ExtResource("7_ebdoy")]
 
 [node name="FadeTimer" type="Timer" parent="fade_transition"]
+one_shot = true
 
 [connection signal="pressed" from="Buttons/GoBack" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="Buttons/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="timeout" from="fade_transition/FadeTimer" to="." method="_on_fade_timer_timeout"]
