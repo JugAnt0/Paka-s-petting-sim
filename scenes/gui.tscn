@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw1k7f4axr3gs"]
+
+[ext_resource type="FontFile" uid="uid://cpj4vdfgcbvqi" path="res://assets/sprites/sprites/BUTTONS/Minecraft.ttf" id="1_efmwq"]
+[ext_resource type="Texture2D" uid="uid://gwet2ke35s2e" path="res://assets/sprites/sprites/paka's petting sim/pescadito.png" id="2_mfius"]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="Fish_Counter2" type="Label" parent="."]
+offset_left = 972.0
+offset_top = 54.0
+offset_right = 1017.0
+offset_bottom = 134.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_efmwq")
+theme_override_font_sizes/font_size = 60
+text = "0"
+
+[node name="Fish_Counter" type="Label" parent="."]
+offset_left = 970.0
+offset_top = 52.0
+offset_right = 1010.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("1_efmwq")
+theme_override_font_sizes/font_size = 60
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1038, 76)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_mfius")

@@ -313,7 +313,7 @@ sources/0 = SubResource("TileSetAtlasSource_auh05")
 [node name="bellist\'s rain dodge" type="Node2D"]
 script = ExtResource("1_g1ssb")
 
-[node name="Bellist" type="CharacterBody2D" parent="."]
+[node name="Bellist" type="CharacterBody2D" parent="." groups=["Players"]]
 script = ExtResource("1_3v3wg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bellist"]

@@ -196,7 +196,7 @@ sources/0 = SubResource("TileSetAtlasSource_rdp1e")
 [node name="flora\'s Sky High" type="Node2D"]
 script = ExtResource("1_pwfd8")
 
-[node name="Flora" type="CharacterBody2D" parent="."]
+[node name="Flora" type="CharacterBody2D" parent="." groups=["Players"]]
 script = ExtResource("2_rdp1e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flora"]

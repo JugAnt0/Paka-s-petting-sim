@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneMemory="*res://script/SceneMemory.gd"
+FishManager="*res://scenes/fish_manager.tscn"
 
 [display]
 
@@ -27,6 +28,14 @@ mouse_cursor/custom_image_hotspot=Vector2(16, 28)
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+Players="cats"
+
+[gui]
+
+theme/custom_font="uid://cpj4vdfgcbvqi"
 
 [input]
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0plv1jgwgs6r"]
+
+[ext_resource type="Script" uid="uid://dhcw5t11n8msr" path="res://script/fish_manager.gd" id="1_sj8nf"]
+[ext_resource type="PackedScene" uid="uid://bw1k7f4axr3gs" path="res://scenes/gui.tscn" id="2_m4ddb"]
+
+[node name="fish manager" type="Node"]
+script = ExtResource("1_sj8nf")
+
+[node name="GUI" parent="." instance=ExtResource("2_m4ddb")]
+
+[editable path="GUI"]
