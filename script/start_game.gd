@@ -7,6 +7,8 @@ extends Node2D
 @onready var blue_house: TextureButton = $"Button Control/BlueButton"
 @onready var lights_yellow: Node2D = $"Button Control/YellowButton/Lights"
 @onready var lights_blue: Node2D = $"Button Control/BlueButton/lights"
+@onready var lockB: Sprite2D = $"Button Control/BlueButton/LockIcon"
+@onready var lockY: Sprite2D = $"Button Control/YellowButton/LockIcon"
 
 func _ready() -> void:
 	sprite.position = Vector2(610, 78)
@@ -58,7 +60,9 @@ func _on_red_button_pressed() -> void:
 func _on_blue_button_pressed() -> void:
 	if not FishManager.houses["blue"]:
 		if FishManager.buy_house("blue"):
-			update_houses()
+			lockB.get_node("AnimationPlayer").play("unlock")
+		else:
+			lockB.get_node("AnimationPlayer").play("locking")
 		return
 	button_type = "blue_b"
 	$fade_transition.show()
@@ -68,7 +72,9 @@ func _on_blue_button_pressed() -> void:
 func _on_yellow_button_pressed() -> void:
 	if not FishManager.houses["yellow"]:
 		if FishManager.buy_house("yellow"):
-			update_houses()
+			lockY.get_node("AnimationPlayer").play("unlock")
+		else:
+			lockY.get_node("AnimationPlayer").play("locking")
 		return
 		
 	button_type = "yellow_b"
@@ -98,3 +104,8 @@ func _on_fade_timer_timeout() -> void:
 		
 	elif button_type == "go_back":
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "unlock":
+		update_houses()

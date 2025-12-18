@@ -387,6 +387,10 @@ scroll_scale = Vector2(1, 1)
 repeat_times = 25
 
 [node name="fish" parent="." instance=ExtResource("10_4y3pj")]
+process_mode = 4
+visible = false
+z_index = 100
+position = Vector2(-32.000004, -23.000002)
 
 [connection signal="body_entered" from="ObstacleTemplates/waterthingy" to="ObstacleTemplates/waterthingy" method="_on_body_entered"]
 [connection signal="body_entered" from="ObstacleTemplates/spikes" to="ObstacleTemplates/spikes" method="_on_body_entered"]
@@ -396,3 +400,4 @@ repeat_times = 25
 
 [editable path="background1"]
 [editable path="background2"]
+[editable path="fish"]

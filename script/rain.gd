@@ -5,6 +5,7 @@ extends Area2D
 @onready var anim_timer: Timer = $AnimTimer
 @onready var speed_timer: Timer = $"../SpeedTimer"
 @onready var gui: CanvasLayer = $"/root/FishManager/GUI"
+@onready var col: CollisionShape2D = $CollisionShape2D
 
 var velocity = Vector2.ZERO
 
@@ -26,7 +27,8 @@ func _on_body_entered(body):
 		Engine.time_scale = 0.2
 		death_timer.start()
 		
-
+	elif body.name == "mini_clouds" or body.name == "TileMapLayer":
+		col.queue_free()
 		
 
 

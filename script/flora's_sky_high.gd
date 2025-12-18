@@ -3,6 +3,7 @@ extends Node2D
 @onready var flora: CharacterBody2D = $Flora
 @onready var camera: Camera2D = $Camera2D
 @onready var gui: CanvasLayer = $"/root/FishManager/GUI"
+@onready var fishes: Area2D = $fish
 
 @onready var platform_still: Node2D = $PlatformStill
 @onready var platform_moving: Node2D = $PlatformMoving
@@ -51,22 +52,46 @@ func _physics_process(_delta: float) -> void:
 	if bg2.global_position.y > cam_y + bg_height:
 		bg2.global_position.y = bg1.global_position.y - bg_height
 		
-func spawn_platform() -> void:
+func spawn_fish_on_platform(platform: Node2D) -> void:
+	if !is_instance_valid(fishes):
+		return
+		
+	var fish := fishes.duplicate()
 	
+	fish.visible = true
+	fish.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	fish.monitorable = true
+	fish.monitoring = true
+	
+	# Spawn slightly above platform
+	fish.global_position = platform.global_position + Vector2(0, -24)
+	
+	add_child(fish)
+
+func spawn_platform() -> void:
 	var gap := randf_range(GAP_MIN, GAP_MAX)
 	spawn_y -= gap
 	
-	
 	var p: Node2D
+	var min_x := MIN_X
+	var max_x := MAX_X
+	
 	if randf() < 0.5:
 		p = platform_still.duplicate()
 	else:
 		p = platform_moving.duplicate()
+		min_x = -64.0
+		max_x = 64.0
 		
-		
-	var x := randf_range(MIN_X, MAX_X)
+	var x := randf_range(min_x, max_x)
 	p.global_position = Vector2(x, spawn_y)
-	
 	
 	add_child(p)
 	platforms.append(p)
+	
+	
+	
+	
+	
+	if randf() < 0.3:
+		spawn_fish_on_platform(p)

@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://colngi77evrn3" path="res://scenes/candle.tscn" id="3_2ners"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="4_ytaok"]
 [ext_resource type="PackedScene" uid="uid://cwp0cvtrp30pq" path="res://scenes/lightbulb.tscn" id="5_ytaok"]
-[ext_resource type="PackedScene" uid="uid://lg4mbbm5ly2c" path="res://scenes/flora.tscn" id="7_orac0"]
 [ext_resource type="PackedScene" uid="uid://d12fl1b235c3f" path="res://scenes/door.tscn" id="8_5exsn"]
 [ext_resource type="Texture2D" uid="uid://3wwfqsa1uttw" path="res://assets/sprites/sprites/paka's petting sim/yellow door.png" id="9_hm3mh"]
+[ext_resource type="PackedScene" uid="uid://dh8pdsq7kmxwp" path="res://scenes/shany.tscn" id="10_hm3mh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u24cm"]
 texture = ExtResource("1_2o1dq")
@@ -140,13 +140,14 @@ position = Vector2(24, -12)
 [node name="lightbulb5" parent="." instance=ExtResource("5_ytaok")]
 position = Vector2(152, -28)
 
-[node name="Flora" parent="." instance=ExtResource("7_orac0")]
-z_index = 5
-position = Vector2(47, 39)
-
 [node name="Door" parent="." instance=ExtResource("8_5exsn")]
 position = Vector2(136, 32)
 
 [node name="Sprite2D" type="Sprite2D" parent="Door"]
 position = Vector2(1, 0)
 texture = ExtResource("9_hm3mh")
+
+[node name="Shany" parent="." instance=ExtResource("10_hm3mh")]
+z_index = 5
+position = Vector2(53, 38)
+input_pickable = true

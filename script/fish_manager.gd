@@ -1,5 +1,5 @@
 extends Node
-var fish = 0
+var fish = 60
 @onready var fish_counter: Label = $"/root/FishManager/GUI/Fish_Counter"
 @onready var sprite: Sprite2D = $"/root/FishManager/GUI/Sprite2D"
 

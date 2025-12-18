@@ -46,23 +46,24 @@ tile_map_data = PackedByteArray("AAD7//7/AAAFAAAAAAD7////AAAFAAEAAAD7/wAAAAAFAAE
 tile_set = SubResource("TileSet_c3qqt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-27, 0)
+position = Vector2(-31, -4)
 texture = ExtResource("3_g2kx4")
 
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="GoBack" type="TextureButton" parent="Buttons"]
-offset_left = -1.0
-offset_top = 7.0
-offset_right = 63.0
-offset_bottom = 23.0
+offset_left = -3.0
+offset_top = 6.0
+offset_right = 61.0
+offset_bottom = 22.0
 texture_normal = ExtResource("4_qwu20")
 texture_hover = ExtResource("5_0neaq")
 
 [node name="TextureButton" type="TextureButton" parent="Buttons"]
-offset_left = 4.0
-offset_top = -16.0
-offset_right = 68.0
+offset_left = -2.0
+offset_top = -15.0
+offset_right = 62.0
+offset_bottom = 1.0
 texture_normal = ExtResource("6_g2kx4")
 texture_hover = ExtResource("7_qwu20")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://14s2l4fcxwho"]
+[gd_scene load_steps=35 format=4 uid="uid://14s2l4fcxwho"]
 
 [ext_resource type="Script" uid="uid://chbbxu3kakosy" path="res://script/flora's_sky_high.gd" id="1_pwfd8"]
 [ext_resource type="Texture2D" uid="uid://b2ofr8yqadjrn" path="res://assets/sprites/Black n white cat-Sheet.png" id="2_0i4hu"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bxsllr2t210cq" path="res://assets/sprites/sprites/paka's petting sim/SkyBackground(1).png" id="10_h18jk"]
 [ext_resource type="Texture2D" uid="uid://bo5uihryhc1js" path="res://assets/sprites/sprites/paka's petting sim/SkyBackground(2).png" id="11_0tddj"]
 [ext_resource type="PackedScene" uid="uid://63vravh4dbiq" path="res://scenes/background.tscn" id="12_0tddj"]
+[ext_resource type="PackedScene" uid="uid://bhk28bt8n75pa" path="res://scenes/fish.tscn" id="13_td6ff"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrunn"]
 atlas = ExtResource("2_0i4hu")
@@ -269,6 +270,15 @@ texture = ExtResource("11_0tddj")
 [node name="background" parent="." instance=ExtResource("12_0tddj")]
 position = Vector2(345, -5)
 
+[node name="fish" parent="." instance=ExtResource("13_td6ff")]
+process_mode = 4
+visible = false
+position = Vector2(160, -26)
+monitoring = false
+monitorable = false
+
 [connection signal="body_entered" from="PlatformStill/Area2D" to="Flora" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="PlatformMoving/Area2D" to="Flora" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+
+[editable path="fish"]

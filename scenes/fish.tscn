@@ -3,6 +3,21 @@
 [ext_resource type="Script" uid="uid://bjw31ovixk2o0" path="res://script/fish.gd" id="1_8g0i4"]
 [ext_resource type="Texture2D" uid="uid://gwet2ke35s2e" path="res://assets/sprites/sprites/paka's petting sim/pescadito.png" id="2_nub35"]
 
+[sub_resource type="Animation" id="Animation_6lgmd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_pgks6"]
 resource_name = "pescao"
 length = 0.4
@@ -10,53 +25,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 1), Vector2(0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_6lgmd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wpvan"]
@@ -68,7 +44,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_bvcvt"]
 radius = 7.0
 
-[node name="fish" type="AnimatableBody2D"]
+[node name="fish" type="Area2D"]
+rotation = 0.061086524
 script = ExtResource("1_8g0i4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -81,9 +58,8 @@ autoplay = "pescao"
 position = Vector2(-2, 0)
 texture = ExtResource("2_nub35")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("CircleShape2D_bvcvt")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

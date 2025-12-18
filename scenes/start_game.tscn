@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://6fbm3euyryor"]
+[gd_scene load_steps=37 format=4 uid="uid://6fbm3euyryor"]
 
 [ext_resource type="Script" uid="uid://bn6dby6jckn38" path="res://script/start_game.gd" id="1_tq2sd"]
 [ext_resource type="PackedScene" uid="uid://b83hwoltxpxrq" path="res://scenes/fade_transition.tscn" id="2_2aiwh"]
@@ -103,15 +103,32 @@ gradient = SubResource("Gradient_wcjs8")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="Gradient" id="Gradient_oyaqm"]
-offsets = PackedFloat32Array(0, 0.6533333)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_g0qae"]
-gradient = SubResource("Gradient_oyaqm")
-fill = 1
-fill_from = Vector2(0.5046729, 0.5)
-fill_to = Vector2(0, 0)
+[sub_resource type="Animation" id="Animation_pfjci"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("LockIcon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("LockIcon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_7wif6"]
 resource_name = "locking"
@@ -141,8 +158,8 @@ tracks/1/keys = {
 "values": [0.0, -0.06981317, 0.06981317, 0.0, -0.06981317, 0.06981317, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_pfjci"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_4w658"]
+resource_name = "unlock"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -150,15 +167,87 @@ tracks/0/path = NodePath("LockIcon:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.24608275, 0.50241894),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(77, 48)]
+"values": [Vector2(77, 48), Vector2(92, 43.000004), Vector2(103, 60)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("LockIcon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.50241894),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5707964]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1nck"]
+_data = {
+&"RESET": SubResource("Animation_pfjci"),
+&"locking": SubResource("Animation_7wif6"),
+&"unlock": SubResource("Animation_4w658")
+}
+
+[sub_resource type="Gradient" id="Gradient_oyaqm"]
+offsets = PackedFloat32Array(0, 0.6533333)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g0qae"]
+gradient = SubResource("Gradient_oyaqm")
+fill = 1
+fill_from = Vector2(0.5046729, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_i1nck"]
+resource_name = "locking"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2007967, 0.26666668, 0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(41, 58), Vector2(43, 58), Vector2(39, 58), Vector2(41, 58), Vector2(43, 58), Vector2(39, 58), Vector2(41, 58)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2007967, 0.26666668, 0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.06981317, 0.06981317, 0.0, -0.06981317, 0.06981317, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8ypdy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(41, 58)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -168,10 +257,38 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1nck"]
+[sub_resource type="Animation" id="Animation_0d1lr"]
+resource_name = "unlock"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.24950057, 0.5015645),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(41, 58), Vector2(58, 57.000008), Vector2(63, 74)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5707964]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4w658"]
 _data = {
-&"RESET": SubResource("Animation_pfjci"),
-&"locking": SubResource("Animation_7wif6")
+&"RESET": SubResource("Animation_8ypdy"),
+&"locking": SubResource("Animation_i1nck"),
+&"unlock": SubResource("Animation_0d1lr")
 }
 
 [sub_resource type="Gradient" id="Gradient_gyxdi"]
@@ -292,6 +409,12 @@ texture = ExtResource("12_jit1l")
 region_enabled = true
 region_rect = Rect2(0, 0, 35, 32)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button Control/BlueButton/LockIcon"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_i1nck")
+}
+
 [node name="lights" type="Node2D" parent="Button Control/BlueButton"]
 visible = false
 
@@ -319,11 +442,6 @@ color = Color(0.6313726, 1, 1, 1)
 energy = 0.25
 texture = SubResource("GradientTexture2D_g0qae")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Button Control/BlueButton"]
-libraries = {
-&"": SubResource("AnimationLibrary_i1nck")
-}
-
 [node name="YellowButton" type="TextureButton" parent="Button Control"]
 layout_mode = 0
 offset_left = -160.0
@@ -343,6 +461,11 @@ position = Vector2(41, 58)
 texture = ExtResource("12_jit1l")
 region_enabled = true
 region_rect = Rect2(0, 0, 34, 32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button Control/YellowButton/LockIcon"]
+libraries = {
+&"": SubResource("AnimationLibrary_4w658")
+}
 
 [node name="PriceLabel" type="Label" parent="Button Control/YellowButton"]
 z_index = 1
@@ -376,10 +499,10 @@ energy = 0.5
 texture = SubResource("GradientTexture2D_fr1gt")
 
 [node name="fade_transition" parent="." instance=ExtResource("2_2aiwh")]
-offset_left = -5231.0
-offset_top = -2529.0
-offset_right = 2753.0
-offset_bottom = 1845.0
+offset_left = -5225.0
+offset_top = -2530.0
+offset_right = 2759.0
+offset_bottom = 1844.0
 
 [node name="FadeTimer" type="Timer" parent="fade_transition"]
 
@@ -409,7 +532,9 @@ texture_hover = ExtResource("19_pfjci")
 [connection signal="pressed" from="Button Control/RedButton" to="." method="_on_red_button_pressed"]
 [connection signal="pressed" from="Button Control/BlueButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Button Control/BlueButton" to="." method="_on_blue_button_pressed"]
+[connection signal="animation_finished" from="Button Control/BlueButton/LockIcon/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Button Control/YellowButton" to="." method="_on_edificio_button_pressed"]
 [connection signal="pressed" from="Button Control/YellowButton" to="." method="_on_yellow_button_pressed"]
+[connection signal="animation_finished" from="Button Control/YellowButton/LockIcon/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="fade_transition/FadeTimer" to="." method="_on_fade_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/GoBack" to="." method="_on_go_back_pressed"]

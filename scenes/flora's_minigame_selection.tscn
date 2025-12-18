@@ -58,18 +58,18 @@ script = ExtResource("2_yuuly")
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="SkyHigh" type="TextureButton" parent="Buttons"]
-offset_left = 7.0
-offset_top = -19.0
-offset_right = 71.0
-offset_bottom = -3.0
+offset_left = 2.0
+offset_top = -15.0
+offset_right = 66.0
+offset_bottom = 1.0
 texture_normal = ExtResource("4_q24qr")
 texture_hover = ExtResource("5_3ajv6")
 
 [node name="GoBack" type="TextureButton" parent="Buttons"]
-offset_left = 1.0
-offset_top = 10.0
-offset_right = 65.0
-offset_bottom = 26.0
+offset_left = -3.0
+offset_top = 6.0
+offset_right = 61.0
+offset_bottom = 22.0
 texture_normal = ExtResource("6_kis5b")
 texture_hover = ExtResource("7_o38yv")
 
@@ -81,7 +81,7 @@ one_shot = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="BlackNWhiteCatDisplay" type="Sprite2D" parent="."]
-position = Vector2(-28, -1)
+position = Vector2(-31, -1)
 texture = ExtResource("9_q24qr")
 
 [connection signal="pressed" from="Buttons/SkyHigh" to="." method="_on_sky_high_pressed"]

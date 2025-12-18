@@ -1,12 +1,10 @@
 extends Node2D
-@onready var fish: AnimatableBody2D = $fish
-
+@onready var fishes: Area2D = $fish
 @onready var obstacles_container = $obstacles
 @onready var spike_template = $ObstacleTemplates/spikes
 @onready var water_template = $ObstacleTemplates/waterthingy
 @onready var gui: CanvasLayer = $"/root/FishManager/GUI"
 @onready var back1: Parallax2D = $background1/back
-
 @onready var front1: Parallax2D = $background1/front
 @onready var mid1: Parallax2D = $background1/mid
 @onready var mid2: Parallax2D = $background2/mid
@@ -51,7 +49,6 @@ func _ready() -> void:
 	g1.position = Vector2(0, 0)
 	g2.position = Vector2(width, 0)
 	gui.show()
-	
 	
 func _process(delta: float) -> void:
 	
@@ -101,8 +98,30 @@ func _process(delta: float) -> void:
 		if obstacle.position.x < -300:
 			obstacle.queue_free()
 			
+func spawn_fish() -> void:
+	if !is_instance_valid(fishes):
+		return
+		
+	var fish := fishes.duplicate()
+	
+	fish.visible = true
+	fish.set_physics_process(false)
+	fish.set_process(false)
+	fish.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	
+	var spawn_x : float = panda.global_position.x +250
+	var spawn_y := randf_range(0, 9) 
+	
+	fish.position = Vector2(spawn_x, spawn_y)
+	
+	obstacles_container.add_child(fish)
+	
+			
 func _on_timer_timeout() -> void:
 	spawn_obstacle()
 	
+	if randf() < 0.3:
+		spawn_fish()
+		
 func _on_speed_timer_timeout() -> void:
 	scroll_speed += 2

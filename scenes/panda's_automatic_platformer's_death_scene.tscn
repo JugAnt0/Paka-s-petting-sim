@@ -53,7 +53,7 @@ limit_top = -44
 limit_right = 77
 limit_bottom = 44
 position_smoothing_enabled = true
-position_smoothing_speed = 1.0
+position_smoothing_speed = 0.2
 script = ExtResource("2_ngbor")
 
 [node name="Buttons" type="Node2D" parent="."]
