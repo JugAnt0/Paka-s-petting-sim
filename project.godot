@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneMemory="*res://script/SceneMemory.gd"
 FishManager="*res://scenes/fish_manager.tscn"
+Info="*res://scenes/info.tscn"
 
 [display]
 

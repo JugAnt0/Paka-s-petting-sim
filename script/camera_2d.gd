@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var smooth_speed := 8.0  # higher = faster camera movement
+@export var smooth_speed := 8.0  
 
 func _process(delta: float) -> void:
 	var target_pos = get_global_mouse_position()
