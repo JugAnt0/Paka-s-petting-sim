@@ -8,9 +8,9 @@
 script = ExtResource("1_kin2u")
 
 [node name="i" type="TextureButton" parent="."]
-offset_left = 1005.0
+offset_left = 47.00006
 offset_top = 32.0
-offset_right = 1022.0
+offset_right = 64.00006
 offset_bottom = 52.0
 scale = Vector2(5, 5)
 texture_normal = ExtResource("1_1t52y")

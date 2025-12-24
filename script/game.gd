@@ -1,7 +1,7 @@
 extends Node2D
-
-var button_type = null
-
+@onready var i: TextureButton = $"/root/Info/i"
+@onready var f = $"/root/FishManager/GUI"
+var button_type = ""
 var pointer = preload("res://assets/sprites/pointer.png")
 var cat = preload("res://assets/sprites/Cat-cursor.png")
 
@@ -14,8 +14,8 @@ func _on_bellist_mouse_exited() -> void:
 
 func _ready() -> void:
 	SceneMemory.push_scene(scene_file_path)
-
-
+	i.hide()
+	f.hide()
 func _on_start_button_pressed():
 	button_type = "start"
 	$fade_transition.show()
@@ -36,6 +36,8 @@ func _on_exit_button_pressed():
 
 
 func _on_fade_timer_timeout() -> void:
+	i.show()
+	f.show()
 	if button_type == "start":
 		get_tree().change_scene_to_file("res://scenes/start_game.tscn")
 		

@@ -24,5 +24,4 @@ func _on_fade_timer_timeout() -> void:
 	if button_type == "GoBack":
 		
 		var previous_scene = SceneMemory.pop_scene()
-		if previous_scene != "":
-			get_tree().change_scene_to_file(previous_scene)
+		get_tree().change_scene_to_file(previous_scene)
